@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>抓到你囉</title>
+</head>
+<body>
+    <h1>歡迎來到我們的網站</h1>
+    <p>請上傳您的視頻檔案：</p>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="video" accept=".mp4, .avi, .mov">
+        <input type="submit" value="上傳">
+    </form>
+    <div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
